@@ -1,7 +1,7 @@
 import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'dart:math' as math show sin, pi, sqrt;
+import 'dart:math' as math show sqrt;
 
 class WaveCustomPaint extends CustomPainter {
   final Color color;
@@ -10,7 +10,7 @@ class WaveCustomPaint extends CustomPainter {
   WaveCustomPaint(this._animation, {@required this.color})
       : super(repaint: _animation);
 
-  void Circle(Canvas canvas, Rect rect, double value) {
+  void circle(Canvas canvas, Rect rect, double value) {
     final double opacity = (1.0 - (value / 4.0).clamp(0.0, 1.0));
     final Color _color = color.withOpacity(opacity);
     final double size = rect.width / 2;
@@ -24,7 +24,7 @@ class WaveCustomPaint extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final Rect rect = Rect.fromLTRB(0.0, 0.0, size.width, size.height);
     for (int wave = 3; wave >= 0; wave--) {
-      Circle(canvas, rect, wave + _animation.value);
+      circle(canvas, rect, wave + _animation.value);
     }
   }
 

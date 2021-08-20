@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:myportfolio/presentation/portfolio_profile_page.dart';
 
 import 'curve.dart';
@@ -24,9 +23,8 @@ class _RippleAnimationState extends State<RippleAnimation>
     with TickerProviderStateMixin {
   AnimationController _animationController;
 
-  var time = Duration(seconds: 10);
-  @override
-  RoutePg() async {
+  var time = Duration(seconds: 3);
+  routePg() async {
     await Future.delayed(time, () {
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => MyProfile()));
@@ -39,7 +37,7 @@ class _RippleAnimationState extends State<RippleAnimation>
     _animationController =
         AnimationController(vsync: this, duration: Duration(milliseconds: 2000))
           ..repeat();
-    RoutePg();
+    routePg();
     super.initState();
   }
 
@@ -72,7 +70,7 @@ class _RippleAnimationState extends State<RippleAnimation>
                     child: DecoratedBox(
                       decoration: BoxDecoration(
                         gradient: RadialGradient(
-                          colors: <Color>[
+                          colors: [
                             widget.color,
                             Color.lerp(widget.color, Colors.black, .05)
                           ],
@@ -109,26 +107,6 @@ class _RippleAnimationState extends State<RippleAnimation>
           ],
         ),
       ),
-    );
-  }
-}
-
-class HomePg extends StatefulWidget {
-  @override
-  _HomePState createState() => _HomePState();
-}
-
-class _HomePState extends State<HomePg> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      // appBar: AppBar(),
-      backgroundColor: Color(0xFFEFF2F8),
-      body: Center(
-          child: Text(
-        'welcome',
-        style: Theme.of(context).textTheme.headline4,
-      )),
     );
   }
 }

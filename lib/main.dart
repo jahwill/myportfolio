@@ -1,8 +1,6 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:myportfolio/components/ripplewaveanimation/ripplesplash.dart';
-import 'package:myportfolio/esusdetailedscreen/esusu_detailed_screen.dart';
 import 'package:myportfolio/presentation/portfolio_profile_page.dart';
 
 void main() {
@@ -15,24 +13,20 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'My Portfolio',
+      title: 'my portfolio',
       theme: ThemeData(
-          textTheme: TextTheme(
-              bodyText2: TextStyle(
-                  fontFamily: 'Montserrat',
-                  fontWeight: FontWeight.w600,
-                  height: 1.3),
-              headline6: TextStyle(
-                fontFamily: 'greycliff',
-              )),
+          textTheme: Theme.of(context).textTheme.copyWith(
+              bodyText1: TextStyle(fontFamily: 'OpenSans'),
+              bodyText2: TextStyle(fontFamily: 'OpenSans'),
+              headline6: TextStyle(fontFamily: 'OpenSans'),
+              caption: TextStyle(fontFamily: 'OpenSans')),
+          primarySwatch: Colors.red,
           primaryColor: Color(0xFFE9A115),
           accentColor: Color(0x5CEFAE30),
           scaffoldBackgroundColor: Color(0xFF131218)),
-      // home: RippleAnimation(
-      //   color: Color(0xFF0AA5A3),
-      //   size: 65,
-      // ),
-      home: EsusuDetailsScreen(),
+      // home: MyHomePage(title: 'folio port'),
+      home: MyProfile(),
+      // home: RippleAnimation(),
     );
   }
 }

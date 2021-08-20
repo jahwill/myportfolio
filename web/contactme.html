@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script> -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-firestore.js"></script> -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Meet jahwill esquire</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="contactme.css">
+    <!-- <script src="https://smtpjs.com/v3/smtp.js"></script> -->
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <header>
+        <div class="logo">
+            <!-- <a href="#" class="logolink"><img src="../assets/images/Logo.png" alt=""></a> -->
+        </div>
+        <ul class="navigation">
+
+            <li> <a href="index.html">Home</a></li>
+
+            <!-- <li> <a href="#">About us</a></li> -->
+
+
+        </ul>
+    </header>
+
+    <section class="contact">
+        <div class="content">
+
+            <div class="title">
+                <h2 class="titleText"><span>d</span>rop a Message</h2>
+                <p>send a quick message to my mail.</p>
+
+            </div>
+
+            <div class="formstatus" id="firestoreStatus">
+                <h5 id="alerttxt"> Thank You I Will reply! </h5>
+            </div>
+
+            <!-- <form name="myform" class="receiveform" id="myform"> -->
+            <form name="myform" id="gform" method="POST" class="pure-form pure-form-stacked"
+                data-email="from_email@example.com"
+                action="https://script.google.com/macros/s/AKfycbwbukQx7jW4MaHO3sjJ24QKpUiFsoBYBoqW-LYJ1pU0JvnwZV-V5tqzPjxzojTx_aFM/exec">
+                <!-- this action link above is for meetjahwill@gmail.com mail account -->
+                <div class="error_label" id="fnamelabel"></div>
+                <div class="inputbox">
+
+                    <input type="text" name="Firstname" placeholder="First name" id="firtsname">
+
+
+                </div>
+
+                <div class="error_label" id="snamelabel"></div>
+                <div class="inputbox">
+
+                    <input type="text" name="Surname" placeholder="Company name" id="sn">
+
+                </div>
+
+
+
+
+                <div class="error_label" id="emaillabel"></div>
+                <div class="inputbox">
+
+                    <input type="email" name="email" placeholder="email" required>
+
+                </div>
+
+
+
+
+
+                <div class="error_label" id="mobilelabel"></div>
+                <div class="inputbox">
+
+                    <input type="text" name="mobile" placeholder="mobile">
+
+
+                </div>
+
+
+                <div class="error_label" id="Textlabel"></div>
+                <div class="inputbox" id="txtarea">
+
+
+                    <textarea name="message" placeholder="message.." required></textarea>
+
+                </div>
+
+                <div class="inputbox">
+
+                    <input type="submit" value="send">
+
+
+                </div>
+
+
+
+            </form>
+
+        </div>
+
+
+    </section>
+
+
+
+    <div class="footer">
+
+        <p> Powered by <span>J-technology </span>Copyright 2021. </p>
+
+    </div>
+
+
+
+
+
+
+
+    <script type="text/javascript" src="submitform.js" async defer></script>
+</body>
+
+</html>

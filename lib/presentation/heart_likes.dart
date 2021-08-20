@@ -1,10 +1,15 @@
 import "package:flutter/material.dart";
 
 import '../deffault_settings.dart';
+// import 'package:cloud_firestore/cloud_firestore.dart';
 
 class HeartLikes extends StatefulWidget {
+  final Color txtcolor;
+  final Color heartcolor;
   const HeartLikes({
     Key key,
+    this.txtcolor = Colors.white,
+    this.heartcolor = Colors.pink,
   }) : super(key: key);
 
   @override
@@ -16,6 +21,38 @@ class _HeartLikesState extends State<HeartLikes> {
   int _likes = 0;
   @override
   Widget build(BuildContext context) {
+    // CollectionReference likes =
+    //     FirebaseFirestore.instance.collection("numberofLikes");
+
+    // likeMe() async {
+    //   DocumentReference documentReference = FirebaseFirestore.instance
+    //       .collection("numberofLikes")
+    //       .doc("ckVzGE0oXDdj477d5exJ");
+    //   try {
+    //     return FirebaseFirestore.instance.runTransaction((transaction) async {
+    //       DocumentSnapshot snapshot = await transaction.get(documentReference);
+    //       if (!snapshot.exists) {
+    //         throw 'can not like right now';
+    //       }
+    //
+    //       ///line below checks the database before increment || decrement the
+    //       ///count
+    //       int likesIncrement = color == widget.heartcolor
+    //           ? snapshot["likes"] - 1
+    //           : snapshot["likes"] + 1;
+    //       //
+    //       await transaction
+    //           .update(documentReference, {"likes": likesIncrement});
+    //     });
+    //   } catch (error) {
+    //     print('something went wrong check your connection');
+    //   } finally {
+    //     print("code executed to the end");
+    //   }
+    //
+    //   //
+    // }
+
     var ttheme = Theme.of(context);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: kDeffaultpadding / 2),
@@ -23,21 +60,20 @@ class _HeartLikesState extends State<HeartLikes> {
         children: [
           Material(
             color: Colors.transparent,
-            child: InkWell(
+            child: GestureDetector(
               onTap: () {
                 setState(() {
-                  color == Colors.pink
+                  // likeMe();
+                  color == widget.heartcolor
                       ? color = Colors.grey
-                      : color = Colors.pink;
-                  color == Colors.pink ? _likes += 1 : _likes -= 1;
+                      : color = widget.heartcolor;
+                  color == widget.heartcolor ? _likes += 1 : _likes -= 1;
                 });
               },
               child: Container(
-                height: 27.0,
-                width: 27.0,
+                height: 25.0,
+                width: 25.0,
                 decoration: BoxDecoration(
-                  // color: Colors.pinkAccent,
-                  // shape: BoxShape.circle,
                   borderRadius: BorderRadius.circular(50),
                 ),
                 child: Image.asset('assets/icons/love_heart.png',
@@ -51,9 +87,43 @@ class _HeartLikesState extends State<HeartLikes> {
             width: kDeffaultpadding / 3,
           ),
           Text(
-            '$_likes likes',
-            style: ttheme.textTheme.bodyText2,
-          )
+            '120 likes',
+            style: ttheme.textTheme.subtitle2.copyWith(color: widget.txtcolor),
+          ),
+
+          // FutureBuilder(
+          //     future: likes.doc("ckVzGE0oXDdj477d5exJ").get(),
+          //     builder: (BuildContext context,
+          //         AsyncSnapshot<DocumentSnapshot> snapshot) {
+          //       if (snapshot.hasError) {
+          //         return Text(
+          //           '0 likes',
+          //           style: ttheme.textTheme.subtitle2
+          //               .copyWith(color: widget.txtcolor),
+          //         );
+          //       }
+          //       if (snapshot.hasData && !snapshot.data.exists) {
+          //         return Text(
+          //           'no likes',
+          //           style: ttheme.textTheme.subtitle2
+          //               .copyWith(color: widget.txtcolor),
+          //         );
+          //       }
+          //       if (snapshot.connectionState == ConnectionState.done) {
+          //         Map<String, dynamic> data = snapshot.data.data();
+          //         _likes = data["likes"];
+          //         return Text(
+          //           '${data["likes"]} likes',
+          //           style: ttheme.textTheme.subtitle2
+          //               .copyWith(color: widget.txtcolor),
+          //         );
+          //       }
+          //       return Text(
+          //         '0 likes',
+          //         style: ttheme.textTheme.subtitle2
+          //             .copyWith(color: widget.txtcolor),
+          //       );
+          //     })
         ],
       ),
     );
