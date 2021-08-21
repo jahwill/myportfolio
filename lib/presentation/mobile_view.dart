@@ -281,43 +281,31 @@ class _MobileViewState extends State<MobileView> {
                         ),
                         MyProjects(),
 
-                        InkWell(
-                          onTap: () async {
-                            if (await canLaunch("web/receiveitems.html")) {
-                              await launch("web/receiveitems.html",
-                                  forceSafariVC: true,
-                                  forceWebView: true,
-                                  enableJavaScript: true);
-                            } else {
-                              throw 'can not launch https://twitter.com/meetjahwill';
-                            }
-                          },
-                          child: TextCard(
-                            elevation: 0.5,
-                            titleText: 'Contact Me',
-                            text: 'You can contact me with the detail info '
-                                'below.\n'
-                                'Mobile: +2347050298246 \n'
-                                'Email: Meetjahwill@gmail.com',
-                            childWidget: Container(
-                              height: 35.0,
-                              width: 165,
-                              margin: EdgeInsets.only(top: 50),
-                              decoration: BoxDecoration(
-                                  border: Border.all(color: Color(0xBC017A78)),
-                                  borderRadius: BorderRadius.circular(4)),
-                              child: TextButton(
-                                  onPressed: () {},
-                                  child: Text(
-                                    'Send A Quick Message',
-                                    // textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                        color: Color(0xBC017A78), fontSize: 12),
-                                  ),
-                                  style: ButtonStyle(
-                                      overlayColor: MaterialStateProperty.all(
-                                          Colors.blueGrey.withOpacity(0.3)))),
-                            ),
+                        TextCard(
+                          elevation: 0.5,
+                          titleText: 'Contact Me',
+                          text: 'You can contact me with the detail info '
+                              'below.\n'
+                              'Mobile: +2347050298246 \n'
+                              'Email: Meetjahwill@gmail.com',
+                          childWidget: Container(
+                            height: 35.0,
+                            width: 165,
+                            margin: EdgeInsets.only(top: 50),
+                            decoration: BoxDecoration(
+                                border: Border.all(color: Color(0xBC017A78)),
+                                borderRadius: BorderRadius.circular(4)),
+                            child: TextButton(
+                                onPressed: () {},
+                                child: Text(
+                                  'Send A Quick Message',
+                                  // textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      color: Color(0xBC017A78), fontSize: 12),
+                                ),
+                                style: ButtonStyle(
+                                    overlayColor: MaterialStateProperty.all(
+                                        Colors.blueGrey.withOpacity(0.3)))),
                           ),
                         ),
                         Container(

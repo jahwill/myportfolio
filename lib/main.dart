@@ -30,3 +30,10 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+//Created service account github-action-361135868 with Firebase Hosting admin permissions.
+// ✔  Uploaded service account JSON to GitHub as secret FIREBASE_SERVICE_ACCOUNT_MYPORTFOLIO_98BE9.
+// i  You can manage your secrets at https://github.com/jahwill/myportfolio/settings/secrets.
+//
+// ? Set up the workflow to run a build script before every deploy? Yes
+// ? What script should be run before every deploy? npm ci && npm run build
